@@ -6,13 +6,11 @@ from app.api.v1.models.parties_model import Party
 pt_v1 = Blueprint('v1', __name__, url_prefix='/api/v1')
 
 
-"""This end point allow admin to edit a party by creating a PATCH request on postman"""
-@pt_v1.route('/parties/<int:party_id>/name', methods=['PUT'])
-def edit_party_name(party_id):
-    data = request.get_json
-    party = Party().edit_party(party_id, data)
+"""This end point allow admin to delete a political party"""
+@pt_v1.route('/editparties<party_id>', methods=['DELETE'])
+def delete_a_party(self, party_id):
+    Party().delete_party(party_id)
     return make_response(jsonify({
         'status': 'OK',
-        'message': 'update successful',
-        'parties': party
-    })
+        'message': 'successfully deleted'
+    }), 200)
