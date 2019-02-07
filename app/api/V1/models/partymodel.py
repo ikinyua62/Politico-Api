@@ -8,17 +8,14 @@ class Party:
         """Initializing class instance variables"""
         self.party = party_list
 
-   """This function creates a new political party   """
- 
-    def create_party(self,name,hqAddress, logoUrl ):
-        party = {
-            'party_id': len(self.party)+1,
-            'name': name,
-            'hqAddress': hqAddress,
-            'logoUrl': logoUrl
-        }
-        self.party.append(party)
-        return party
+  """defines arguments for edit party route/ end point"""
+    def edit_party(self, party_id, data):
+        for party in party:
+            if party('party_id') == party_id:
+                name = data.get("name")
+            if name:
+                party["name"] = name
+            return party
 
 
  
