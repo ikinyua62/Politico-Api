@@ -29,3 +29,13 @@ class OfficeModel:
   """get_all retrieves all the registered gov offices from the system"""
     def get_all(self):
         return self.office 
+        
+"""this function defines model for the get specific office end point."""
+    def get_office_by_id(self, name):
+        if self.office:
+            for office in self.office:
+                if office.get('name') == name:
+
+                    return office   
+
+  
