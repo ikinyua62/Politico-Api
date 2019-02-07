@@ -20,3 +20,18 @@ class OfficeView:
         return make_response(jsonify({
             "msg": "Success"
         }), 201)
+
+        """This is the route for retrieving all political parties."""
+
+    @pt_v1.route('/parties', methods=['GET'])
+    def get_all_parties():
+        parties = Party().get_all()
+        if parties:
+            return make_response(jsonify({
+                'msg': 'success',
+                'parties': parties
+            }))
+        return make_response(jsonify({
+            'msg': 'success',
+            'parties': parties
+        }))
