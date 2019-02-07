@@ -5,19 +5,17 @@ from app.api.v1.models.parties_model import Party
 """The below file reisters blueprints for the api"""
 pt_v1 = Blueprint('v1', __name__, url_prefix='/api/v1')
 
-"""This is the route allows user to retrieve one political party with specific party id"""
-
-
-@pt_v1.route('/parties/<int:party_id>', methods=['GET'])
-def get_by_id(party_id):
-    party = Party().get_party_by_id(party_id)
-    if party:
-        return make_response(jsonify({
-            'message': 'success',
-            'Status': 200,
-            'parties': party
-        }), 200)
+"""This end point allows uadmin to create a new political party"""
+@pt_v1.route('/parties', methods=['POST'])
+def create__a_party():
+    data = request.get_json()
+    name = data['name']
+    hqAddress = data['hqAddress']
+    logoUrl = data['logoUrl']
+    party = Party().create_party(name, hqAddress, logoUrl)
     return make_response(jsonify({
-        'error': 404,
-        'message': 'NOt found'
-    }), 404)
+        "data": party,
+        "status": 201,
+        "msg": "created Successfully"
+
+    }), 201)
