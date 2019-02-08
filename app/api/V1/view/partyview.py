@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> ca0982e0fbda3f61334f7195fb9a9e6cea408be0
 from flask import Flask, jsonify, request, make_response, Blueprint, Response
 from app.api.v1.models.parties_model import Party
 
 
+<<<<<<< HEAD
 from flask import Flask, jsonify, request, make_response, Blueprint, Response
 from app.api.v1.models.parties_model import Party
 
@@ -28,6 +32,11 @@ def create__a_party():
 
     }), 201)
 
+=======
+"""The below file reisters blueprints for the api"""
+pt_v1 = Blueprint('v1', __name__, url_prefix='/api/v1')
+
+>>>>>>> ca0982e0fbda3f61334f7195fb9a9e6cea408be0
 
 """This is the route for retrieving all political parties."""
 
@@ -40,6 +49,7 @@ def get_all_parties():
             'msg': 'success',
             'parties': parties
         }))
+<<<<<<< HEAD
 
 
 """This is the route allows user to retrieve one political party with specific party id"""
@@ -81,3 +91,5 @@ def delete_a_party(self, party_id):
     }), 200)
 
 >>>>>>> Stashed changes
+=======
+>>>>>>> ca0982e0fbda3f61334f7195fb9a9e6cea408be0
