@@ -11,7 +11,7 @@ class TestParties(unittest.TestCase):
         self.dummy_data= {
             "name" : "office of the President " ,
             "candidate_id" :"P2018S" ,
-            "date_created" : "12/02/1012or"
+            "date_created" : "00/00/0000"
         }
     def post(self, path = 'api/v1/party' ):
         """Creating a base post response with some dummy data """
